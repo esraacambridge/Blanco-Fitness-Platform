@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&family=Cairo:wght@300;400;500;600;700&family=Tajawal:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --blanco-black: 8 8 8;
+    --blanco-secondary: 17 17 17;
+    --blanco-elevated: 25 25 25;
+    --blanco-gold: 212 175 55;
+    --blanco-gold-light: 241 217 138;
+    --blanco-gold-dark: 168 130 29;
+    --blanco-white: 255 255 255;
+    --blanco-muted: 165 165 165;
+    --blanco-muted-dark: 107 107 107;
+    --blanco-line: 34 34 34;
+    --surface-light: 250 250 249;
+    --surface-light-2: 245 245 244;
+    --surface-light-3: 231 229 228;
+  }
+
+  .light {
+    --blanco-black: 250 250 249;
+    --blanco-secondary: 245 245 244;
+    --blanco-elevated: 255 255 255;
+    --blanco-white: 24 24 27;
+    --blanco-muted: 82 82 91;
+    --blanco-muted-dark: 113 113 122;
+    --blanco-line: 231 229 228;
+  }
+
+  * {
+    @apply border-blanco-line;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-blanco-black text-blanco-white antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 32;
+  }
+
+  .light body {
+    @apply bg-surface-light text-blanco-black;
+  }
+
+  body,
+  .card-elevated,
+  .glass,
+  .input-blanco {
+    transition: background-color 300ms ease, border-color 300ms ease, color 300ms ease;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-blanco-secondary;
+  }
+
+  .light ::-webkit-scrollbar-track {
+    @apply bg-surface-light-2;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-blanco-elevated rounded-full;
+  }
+
+  .light ::-webkit-scrollbar-thumb {
+    @apply bg-surface-light-3;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-blanco-gold-dark;
+  }
+
+  /* Selection */
+  ::selection {
+    @apply bg-blanco-gold text-blanco-black;
+  }
+}
+
+@layer components {
+  .container-blanco {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-gold {
+    @apply bg-gold-gradient text-blanco-black font-semibold px-6 py-3 rounded-lg
+           transition-all duration-300;
+  }
+  .btn-gold:hover {
+    @apply brightness-110 shadow-gold-lg;
+  }
+  .btn-gold:active {
+    @apply scale-95;
+  }
+  .btn-gold:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .btn-outline {
+    @apply border border-blanco-gold text-blanco-gold font-semibold px-6 py-3 rounded-lg
+           transition-all duration-300;
+  }
+  .btn-outline:hover {
+    @apply bg-blanco-gold text-blanco-black shadow-gold;
+  }
+  .btn-outline:active {
+    @apply scale-95;
+  }
+  .btn-outline:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply text-blanco-muted font-medium px-4 py-2 rounded-lg
+           transition-all duration-300 hover:text-blanco-white hover:bg-blanco-elevated;
+  }
+
+  .card-elevated {
+    @apply bg-blanco-elevated rounded-xl border border-blanco-line
+           transition-all duration-300;
+  }
+
+  .light .card-elevated {
+    @apply bg-blanco-elevated rounded-xl border border-surface-light-3 shadow-card;
+  }
+
+  .input-blanco {
+    @apply w-full bg-blanco-secondary border border-blanco-line rounded-lg
+           px-4 py-3 text-blanco-white placeholder-blanco-muted-dark
+           focus:outline-none focus:border-blanco-gold focus:ring-1 focus:ring-blanco-gold
+           transition-all duration-200;
+  }
+
+  .light .input-blanco {
+    @apply bg-surface-light-2 border-surface-light-3 text-blanco-black
+           placeholder-blanco-muted-dark focus:border-blanco-gold focus:ring-blanco-gold;
+  }
+
+  .label-blanco {
+    @apply block text-sm font-medium text-blanco-muted mb-2;
+  }
+
+  .light .label-blanco {
+    @apply text-blanco-muted-dark;
+  }
+
+  .skeleton {
+    @apply bg-gradient-to-r from-blanco-elevated via-blanco-line to-blanco-elevated
+           bg-[length:1000px_100%] animate-shimmer rounded-lg;
+  }
+
+  .accent-divider {
+    @apply h-px bg-gradient-to-r from-transparent via-blanco-gold to-transparent;
+  }
+
+  .gold-divider {
+    @apply h-px bg-gradient-to-r from-transparent via-blanco-gold to-transparent;
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gold-gradient;
+  }
+
+  .glass {
+    @apply backdrop-blur-md bg-blanco-black/80;
+  }
+
+  .light .glass {
+    @apply backdrop-blur-md bg-blanco-elevated/85;
+    box-shadow: 0 4px 24px rgba(24, 24, 27, 0.08);
+  }
+
+  /* Section label badge */
+  .section-badge {
+    @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full
+           border border-blanco-gold/30 bg-blanco-gold/10
+           text-xs font-medium text-blanco-gold uppercase tracking-wider;
+  }
+
+  /* Gold-bordered card on hover */
+  .card-gold-hover {
+    @apply transition-all duration-300 hover:border-blanco-gold/40 hover:shadow-gold;
+  }
+
+  /* Gradient text border for hero */
+  .hero-gradient-border {
+    @apply absolute inset-0 rounded-2xl;
+    background: linear-gradient(135deg, rgba(212,175,55,0.3), transparent, rgba(212,175,55,0.1));
+  }
+}
+
+@layer utilities {
+  .rtl { direction: rtl; }
+  .ltr { direction: ltr; }
+  .text-balance { text-wrap: balance; }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .perspective { perspective: 1000px; }
+  .preserve-3d { transform-style: preserve-3d; }
+
+  /* Gold glow text */
+  .text-glow-gold {
+    text-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+  }
+
+  /* Subtle grid background pattern */
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Radial gold glow */
+  .bg-gold-radial {
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
