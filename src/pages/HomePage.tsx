@@ -13,7 +13,7 @@ import { Alert, EmptyState, LoadingSpinner } from '@/components/ui/Feedback';
 import { SkeletonCard } from '@/components/ui/Skeleton';
 import type { Program, Exercise, Trainer, MembershipPlan, FAQ as FAQType, Testimonial, MuscleGroup, NutritionArticle, SiteSettings, Transformation, Award as AwardType } from '@/types';
 
-const HERO_IMAGE = 'https://images.pexels.com/photos/5327528/pexels-photo-5327528.jpeg?auto=compress&cs=tinysrgb&w=1920';
+const HERO_IMAGE = '/public/esraa.png';
 const PROGRAM_IMAGE = 'https://images.pexels.com/photos/896058/pexels-photo-896058.jpeg?auto=compress&cs=tinysrgb&w=940';
 
 export function HomePage() {
